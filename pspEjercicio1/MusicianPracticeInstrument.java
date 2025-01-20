@@ -1,12 +1,13 @@
-package pspEjercicio1;
-//Class for representing practincing of the musician
+package exerciseMusicianImplement;
+import exerciseMusician.MusicianPracticeInstrument;
 
-public class MusicianPracticeInstrument extends Thread {
+// Class implementing Runnable to represent a musician practicing
+class MusicianPracticeRunnable implements Runnable {
 	private String musicianName;
 	private int practiceTime;
 	private String songName;
 
-	public MusicianPracticeInstrument(String musicianName, int practiceTime,String songName) {
+	public MusicianPracticeRunnable(String musicianName, int practiceTime,String songName) {
 		this.musicianName = musicianName;
 		this.songName=songName;
 		this.practiceTime = practiceTime;//in seconds
@@ -26,11 +27,16 @@ public class MusicianPracticeInstrument extends Thread {
 		MusicianPracticeInstrument m1=new MusicianPracticeInstrument("Pepe ",1,"Autorretrato,Extremoduro");
 		MusicianPracticeInstrument m2=new MusicianPracticeInstrument("Pepa ",2,"Ni una sola palbara,Paulina Rubio");
 		MusicianPracticeInstrument m3=new MusicianPracticeInstrument("Luis ",3,"Peter Pan,El canto del loco");
+		// Create and start threads
+		Thread thread1 = new Thread(m1);
+		Thread thread2 = new Thread(m2);
+		Thread thread3 = new Thread(m3);
 
-		m1.start();
-		m2.start();
-		m3.start();
+		thread1.start();
+		thread2.start();
+		thread3.start();
 
-		System.out.println("All musician are practicings \n");
+		// Main thread continues
+		System.out.println("All musician are practicing ... ");
 	}
 }
