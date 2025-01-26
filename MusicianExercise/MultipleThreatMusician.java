@@ -1,5 +1,5 @@
 package MusicianExercise;
-//ececise for create a multiple threads from the same object
+//exercise for create a multiple threads from the same object
 
 public class MultipleThreatMusician extends Thread {
 	private String musicianName;
